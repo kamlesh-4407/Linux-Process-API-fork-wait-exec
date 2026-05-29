@@ -24,66 +24,61 @@ Test the C Program for the desired output.
 # PROGRAM:
 
 ## C Program to create new process using Linux API system calls fork() and getpid() , getppid() and to print process ID and parent Process ID using Linux API system calls
+```
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main(void)
+{	//variable to store calling function's process id
+	pid_t process_id;
+	//variable to store parent function's process id
+	pid_t p_process_id;
+	//getpid() - will return process id of calling function
+	process_id = getpid();
+	//getppid() - will return process id of parent function
+	p_process_id = getppid();
+	//printing the process ids
+
+//printing the process ids
+	printf("The process id: %d\n",process_id);
+	printf("The process id of parent function: %d\n",p_process_id);
+	return 0; }
+```
+
+
+## OUTPUT
 
 
 
-
-
-
-
-
-
-
-
-
-
-##OUTPUT
-
-
-
-
-
-
+![Screenshot 2024-04-10 130354](https://github.com/rdxkeerthi/Linux-Process-API-fork-wait-exec/assets/147473120/e5c2192f-b198-4ca2-87ce-a8e317dd0d05)
 
 
 ## C Program to execute Linux system commands using Linux API system calls exec() , exit() , wait() family
 
 
+```
+
+#include <stdio.h>
+#include<stdlib.h>
+int main(){
+   int pid; 
+   pid=fork(); 
+   if(pid == 0) {
+        printf("Iam child my pid is %d\n",getpid());   
+        printf("My parent pid is:%d\n",getppid()); 
+        exit(0);
+ } 
+   else{ 
+        printf("I am parent, my pid is %d\n",getpid()); 
+        sleep(100); 
+        exit(0);
+} 
 
 
+```
+## OUTPUT
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##OUTPUT
-
-
-
-
-
-
-
-
-
-
+![Screenshot 2024-04-10 130412](https://github.com/rdxkeerthi/Linux-Process-API-fork-wait-exec/assets/147473120/ca9592fc-6645-483c-a5bd-159c535aca54)
 
 
 
